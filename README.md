@@ -19,4 +19,4 @@
 
 >Preview
 
-![](Assignment/Catalog.png)
+![](https://github.com/nishonofff/Assignment1_1/blob/master/app/src/main/res/drawable/preview.png)
