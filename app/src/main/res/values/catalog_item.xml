@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="catalog_item_names">
+
+        <item>Beeline</item>
+        <item>UMS</item>
+        <item>Uzmobile</item>
+        <item>Ucell</item>
+        <item>OLX</item>
+        <item>Perfectum Mobile</item>
+        <item>Balck Star Wear</item>
+
+    </string-array>
+
+    <string-array name="catalog_item_descriptions">
+
+        <item>Мобильные операторы</item>
+        <item>Мобильные операторы</item>
+        <item>Мобильные операторы</item>
+        <item>Мобильные операторы</item>
+        <item>Доска объявлений</item>
+        <item>Мобильные операторы</item>
+        <item>Интернет магазин</item>
+
+    </string-array>
+
+
+    <string name="title">Оплата услуг</string>
+
+    <array name="catalog_item_images">
+        <item> @drawable/beeline</item>
+        <item> @drawable/ums</item>
+        <item> @drawable/uzmobile</item>
+        <item> @drawable/ucell</item>
+        <item> @drawable/olx</item>
+        <item> @drawable/perfectum</item>
+        <item> @drawable/black_star</item>
+    </array>
+
+    <string-array name="pages">
+        <item>Каталог</item>
+        <item>История</item>
+    </string-array>
+
+
+    <string name="item_description">Мобильные операторы</string>
+
+</resources>
