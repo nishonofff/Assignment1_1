@@ -11,7 +11,6 @@
 
 
 ### Used librarys
-* _ButterKnife_ - for binding data
 * _Picasso_ - for getting image from resource and showing in RecyclerView
 * _CardView_ - for covering image item with borders and some shadows
 * _Design_ - for supporting and using some other views such as RecyclerView and etc.
@@ -19,4 +18,4 @@
 
 >Preview
 
-![](Assignment/Catalog.png)
+![](https://github.com/nishonofff/Assignment1_1/blob/master/app/src/main/res/drawable/preview.png)
