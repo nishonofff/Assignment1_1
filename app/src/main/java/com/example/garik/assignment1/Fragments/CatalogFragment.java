@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.garik.assignment1.Adapters.CatalogAdapter;
 import com.example.garik.assignment1.R;
+import com.example.garik.assignment1.databinding.CatalogFragmentBinding;
 
 
 /**
@@ -20,6 +21,7 @@ import com.example.garik.assignment1.R;
 public class CatalogFragment extends Fragment {
 
     public static final String POSITION_KEY="POSITION_KEY";
+
 
     private RecyclerView recyclerView;
     public static CatalogFragment newInstance(int position) {
@@ -35,10 +37,10 @@ public class CatalogFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.catalog_fragment,container,false);
-        recyclerView=view.findViewById(R.id.catalog_item_container);
+        CatalogFragmentBinding binding=CatalogFragmentBinding.inflate(inflater,container,false);
+        recyclerView=binding.catalogItemContainer;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new CatalogAdapter(getContext()));
-        return view;
+        return binding.getRoot();
     }
 }

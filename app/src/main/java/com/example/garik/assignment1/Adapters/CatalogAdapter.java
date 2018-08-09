@@ -3,15 +3,15 @@ package com.example.garik.assignment1.Adapters;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
+
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+
 
 import com.example.garik.assignment1.Items.CatalogItem;
 import com.example.garik.assignment1.Items.CatalogItemList;
-import com.example.garik.assignment1.R;
-import com.squareup.picasso.Picasso;
+
+import com.example.garik.assignment1.databinding.CatalogDataBinding;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +24,9 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
 
 
 
-    private List<CatalogItem> catalogItems;
+
     private Context context;
-
-
+    private List<CatalogItem> catalogItems;
 
 
     public CatalogAdapter(Context context) {
@@ -40,19 +39,15 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.catalog_item,parent,false);
-        return new ViewHolder(view);
+        CatalogDataBinding dataBinding=CatalogDataBinding.inflate(inflater,parent,false);
+        return new ViewHolder(dataBinding);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.itemName.setText(catalogItems.get(position).getName());
-        holder.itemDescription.setText(catalogItems.get(position).getDescription());
-
-        Picasso.with(context)
-                .load(catalogItems.get(position).getImage())
-                .into(holder.itemImage);
+        CatalogItem item=catalogItems.get(position);
+        holder.bind(item);
 }
 
     @Override
@@ -62,18 +57,19 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private CatalogDataBinding dataBinding;
 
-        ImageView itemImage;
-        TextView itemName;
-        TextView itemDescription;
+        public ViewHolder(CatalogDataBinding dataBinding) {
+            super(dataBinding.getRoot());
+            this.dataBinding = dataBinding;
+        }
 
+        public void bind(CatalogItem item){
+            this.dataBinding.setCatalogItem(item);
+        }
 
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            itemImage=itemView.findViewById(R.id.item_image);
-            itemName=itemView.findViewById(R.id.item_name);
-            itemDescription=itemView.findViewById(R.id.item_description);
+        public CatalogDataBinding getDataBinding() {
+            return dataBinding;
         }
     }
 }

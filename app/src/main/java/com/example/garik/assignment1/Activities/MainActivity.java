@@ -1,5 +1,6 @@
 package com.example.garik.assignment1.Activities;
 
+import android.databinding.DataBindingUtil;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.garik.assignment1.Fragments.CatalogFragment;
 import com.example.garik.assignment1.R;
+import com.example.garik.assignment1.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,14 +25,18 @@ public class MainActivity extends AppCompatActivity {
             , "История"
     };
 
+    private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       setContentView(R.layout.activity_main);
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
 
-        viewPager=findViewById(R.id.view_pager);
-        tabLayout=findViewById(R.id.tab_layout);
-        toolbar=findViewById(R.id.toolbar);
+        viewPager=binding.viewPager;
+        tabLayout=binding.tabLayout;
+        toolbar=binding.toolbar;
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         viewPager.setAdapter(new HistoryPagerAdapter());
