@@ -44,7 +44,6 @@
                 app:tabSelectedTextColor="#FFFFFF"
                 app:tabTextAppearance="@style/TabLayoutTextAppearance"
                 app:tabTextColor="#B2FFFFFF"
-
                 />
 
         </android.support.design.widget.AppBarLayout>

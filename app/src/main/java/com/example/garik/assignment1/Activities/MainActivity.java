@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_main);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
-
         viewPager=binding.viewPager;
         tabLayout=binding.tabLayout;
         toolbar=binding.toolbar;

@@ -23,8 +23,6 @@ import java.util.List;
 public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHolder> {
 
 
-
-
     private Context context;
     private List<CatalogItem> catalogItems;
 

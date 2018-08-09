@@ -2,7 +2,6 @@ package com.example.garik.assignment1.Adapters;
 
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;
-
 import com.squareup.picasso.Picasso;
 
 /**

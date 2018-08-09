@@ -31,6 +31,7 @@ public class CatalogFragment extends Fragment {
         bundle.putInt(POSITION_KEY,position+1);
         fragment.setArguments(bundle);
         return fragment;
+
     }
 
     @Nullable
@@ -42,5 +43,6 @@ public class CatalogFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new CatalogAdapter(getContext()));
         return binding.getRoot();
+
     }
 }
