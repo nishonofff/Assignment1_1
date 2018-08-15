@@ -13,6 +13,9 @@ import com.example.garik.assignment1.Fragments.CatalogFragment;
 import com.example.garik.assignment1.R;
 import com.example.garik.assignment1.databinding.ActivityMainBinding;
 
+/**
+ * Created by nishonofff on 31.07.2018.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
+
+
+
     private String[] pageNames= {
             "Каталог"
             , "История"
@@ -44,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    /**
+     * HistoryPagerAdapter - adapter for viewPager
+     */
     class HistoryPagerAdapter extends FragmentPagerAdapter{
 
 

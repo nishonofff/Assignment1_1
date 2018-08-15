@@ -17,9 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GaRiK on 31.07.2018.
+ * Created by nishonofff on 31.07.2018.
  */
-
 public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHolder> {
 
 
@@ -27,6 +26,11 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
     private List<CatalogItem> catalogItems;
 
 
+    /**
+     * Instantiates a new Catalog adapter.
+     *
+     * @param context the context
+     */
     public CatalogAdapter(Context context) {
         this.context = context;
         catalogItems=new ArrayList<>();
@@ -53,19 +57,37 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
         return catalogItems.size();
     }
 
+    /**
+     * The type View holder.
+     */
     class ViewHolder extends RecyclerView.ViewHolder{
 
         private CatalogDataBinding dataBinding;
 
+        /**
+         * Instantiates a new View holder.
+         *
+         * @param dataBinding the data binding
+         */
         public ViewHolder(CatalogDataBinding dataBinding) {
             super(dataBinding.getRoot());
             this.dataBinding = dataBinding;
         }
 
+        /**
+         * Bind.
+         *
+         * @param item the item
+         */
         public void bind(CatalogItem item){
             this.dataBinding.setCatalogItem(item);
         }
 
+        /**
+         * Gets data binding.
+         *
+         * @return the data binding
+         */
         public CatalogDataBinding getDataBinding() {
             return dataBinding;
         }

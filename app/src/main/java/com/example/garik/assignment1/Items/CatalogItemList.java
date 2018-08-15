@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GaRiK on 03.08.2018.
+ * Created by nishonofff on 03.08.2018.
  */
 
 public class CatalogItemList {
@@ -18,10 +18,16 @@ public class CatalogItemList {
     private String[] catalogItemNames;
     private String[] catalogItemDescriptions;
     private TypedArray catalogItemImages;
+
+
     private Context context;
 
 
-
+    /**
+     * Constructor of CatalogItemList class, all initializations written here
+     *
+     * @param context the context
+     */
     public CatalogItemList(Context context) {
         this.context=context;
         catalogItems=new ArrayList<>();
@@ -33,7 +39,7 @@ public class CatalogItemList {
 
             CatalogItem item=new CatalogItem(
                     catalogItemNames[i]
-                    , catalogItemDescriptions[i]
+                    ,catalogItemDescriptions[i]
                     ,catalogItemImages.getResourceId(i,0));
 
             catalogItems.add(item);
@@ -41,12 +47,18 @@ public class CatalogItemList {
 
     }
 
+
+    /**
+     * @return list of CatalogItems as a List<CatalogItem>
+     */
     public List<CatalogItem> getCatalogItems() {
         return catalogItems;
     }
-
-    public void setHistoryItems(List<CatalogItem> historyItems) {
-        this.catalogItems = historyItems;
+    /**
+     * @param catalogItems the catalog items
+     */
+    public void setHistoryItems(List<CatalogItem> catalogItems) {
+        this.catalogItems = catalogItems;
     }
 
 }

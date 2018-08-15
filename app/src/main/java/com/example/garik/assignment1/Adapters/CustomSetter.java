@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by GaRiK on 08.08.2018.
+ * Created by nishonofff on 08.08.2018.
  */
 
 public class CustomSetter {

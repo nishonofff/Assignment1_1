@@ -15,15 +15,25 @@ import com.example.garik.assignment1.databinding.CatalogFragmentBinding;
 
 
 /**
- * Created by GaRiK on 02.08.2018.
+ * Created by nishonofff on 02.08.2018.
  */
 
 public class CatalogFragment extends Fragment {
 
+    /**
+     * The constant POSITION_KEY.
+     */
     public static final String POSITION_KEY="POSITION_KEY";
 
 
     private RecyclerView recyclerView;
+
+    /**
+     * New instance catalog fragment.
+     *
+     * @param position the position
+     * @return the catalog fragment
+     */
     public static CatalogFragment newInstance(int position) {
 
         CatalogFragment fragment = new CatalogFragment();
@@ -33,6 +43,9 @@ public class CatalogFragment extends Fragment {
         return fragment;
 
     }
+
+
+
 
     @Nullable
     @Override
