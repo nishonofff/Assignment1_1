@@ -9,9 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.activeandroid.query.Select;
 import com.example.garik.assignment1.Adapters.CatalogAdapter;
+import com.example.garik.assignment1.DBactiveAndroid.CatalogModel;
+import com.example.garik.assignment1.Items.CatalogItem;
+import com.example.garik.assignment1.Items.CatalogItemList;
 import com.example.garik.assignment1.R;
 import com.example.garik.assignment1.databinding.CatalogFragmentBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,8 +32,11 @@ public class CatalogFragment extends Fragment {
      */
     public static final String POSITION_KEY="POSITION_KEY";
 
-
+    private CatalogAdapter adapter;
     private RecyclerView recyclerView;
+
+    private List<CatalogItem> catalogItems;
+    private List<CatalogModel> modelList;
 
     /**
      * New instance catalog fragment.
@@ -45,7 +55,35 @@ public class CatalogFragment extends Fragment {
     }
 
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+
+        catalogItems=new ArrayList<>();
+        catalogItems=new CatalogItemList(getContext()).getCatalogItems();
+        modelList=new Select().from(CatalogModel.class).execute();
+
+
+        if(modelList.size()<=0){
+            for (int i = 0; i < catalogItems.size(); i++) {
+
+                CatalogModel model=new CatalogModel();
+                model.name=catalogItems.get(i).getName();
+                model.description=catalogItems.get(i).getDescription();
+                model.image=catalogItems.get(i).getImage();
+                model.save();
+
+
+            }
+
+        }
+
+    }
+
+    public void refreshList(List<CatalogModel> modelList){
+        adapter.setModelList(modelList);
+    }
 
     @Nullable
     @Override
@@ -53,9 +91,18 @@ public class CatalogFragment extends Fragment {
 
         CatalogFragmentBinding binding=CatalogFragmentBinding.inflate(inflater,container,false);
         recyclerView=binding.catalogItemContainer;
+        adapter=new CatalogAdapter(getContext(),modelList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new CatalogAdapter(getContext()));
+        recyclerView.setAdapter(adapter);
+
         return binding.getRoot();
 
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 }

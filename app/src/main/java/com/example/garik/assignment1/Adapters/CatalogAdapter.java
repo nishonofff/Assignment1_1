@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 
+import com.activeandroid.query.Select;
+import com.example.garik.assignment1.DBactiveAndroid.CatalogModel;
 import com.example.garik.assignment1.Items.CatalogItem;
 import com.example.garik.assignment1.Items.CatalogItemList;
 
@@ -23,7 +25,9 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
 
 
     private Context context;
-    private List<CatalogItem> catalogItems;
+    private List<CatalogModel> modelList;
+
+
 
 
     /**
@@ -31,11 +35,9 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
      *
      * @param context the context
      */
-    public CatalogAdapter(Context context) {
+    public CatalogAdapter(Context context, List<CatalogModel> modelList) {
         this.context = context;
-        catalogItems=new ArrayList<>();
-        catalogItems=new CatalogItemList(context).getCatalogItems();
-
+        this.modelList = modelList;
     }
 
     @Override
@@ -48,13 +50,20 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        CatalogItem item=catalogItems.get(position);
-        holder.bind(item);
+        CatalogModel model=modelList.get(position);
+        holder.bind(model);
 }
+
+
+    public void setModelList(List<CatalogModel> modelList) {
+
+        this.modelList=modelList;
+        notifyItemInserted(modelList.size()-1);
+    }
 
     @Override
     public int getItemCount() {
-        return catalogItems.size();
+        return modelList.size();
     }
 
     /**
@@ -77,10 +86,10 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
         /**
          * Bind.
          *
-         * @param item the item
+         * @param model the item
          */
-        public void bind(CatalogItem item){
-            this.dataBinding.setCatalogItem(item);
+        public void bind(CatalogModel model){
+            this.dataBinding.setCatalogModel(model);
         }
 
         /**

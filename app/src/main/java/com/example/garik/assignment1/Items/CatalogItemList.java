@@ -31,7 +31,7 @@ public class CatalogItemList {
     public CatalogItemList(Context context) {
         this.context=context;
         catalogItems=new ArrayList<>();
-        catalogItemNames =context.getResources().getStringArray(R.array.catalog_item_names);
+        catalogItemNames = context.getResources().getStringArray(R.array.catalog_item_names);
         catalogItemDescriptions =context.getResources().getStringArray(R.array.catalog_item_descriptions);
         catalogItemImages=context.getResources().obtainTypedArray(R.array.catalog_item_images);
 
